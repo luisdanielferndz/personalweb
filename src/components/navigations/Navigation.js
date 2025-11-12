@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../others/Logo";
-
+import WhatsAppButton from "../others/WhatsAppButton";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const internalLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
+    { name: 'About Daniel', href: '/about' },
+    { name: 'Real Estate', href: '/estate' },
     { name: 'Developer', href: '/developer' },
+    { name: 'Book', href: '/bookhome' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -20,15 +21,12 @@ export default function Navbar() {
         {/* Logo */}
         <div className="flex items-center space-x-2 md:space-x-4">
           <Link to="/">
-            {/* <img>
-              src="/assets/logo.png"
-            </img> */}
             <Logo size="text-xl" />
           </Link>
         </div>
 
         {/* Menú escritorio */}
-        <div className="hidden md:flex items-center space-x-4 md:space-x-6 text-base font-bold">
+        <div className="hidden md:flex items-center space-x-4 md:space-x-6 text-lg font-bold">
           {internalLinks.map((link, idx) => (
             <Link
               key={idx}
@@ -42,6 +40,9 @@ export default function Navbar() {
               {link.name}
             </Link>
           ))}
+
+          {/* WhatsApp Button en escritorio */}
+          <WhatsAppButton />
         </div>
 
         {/* Botón menú hamburguesa */}
@@ -66,12 +67,15 @@ export default function Navbar() {
             <Link
               key={idx}
               to={link.href}
-              className="hover:text-[#B59E7D] text-lg font-bold transition"
+              className="hover:text-[#B59E7D] text-xl font-bold transition"
               onClick={() => setIsOpen(false)}
             >
               {link.name}
             </Link>
           ))}
+
+          {/* WhatsApp Button en móvil */}
+          <WhatsAppButton />
         </div>
       )}
     </nav>
