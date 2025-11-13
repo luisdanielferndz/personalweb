@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Logo from "../others/Logo";
 import WhatsAppButton from "../others/WhatsAppButton";
 
 export default function Navbar() {
@@ -20,10 +19,15 @@ export default function Navbar() {
       <div className="max-w-full mx-auto px-4 md:px-20 flex items-center justify-between h-20">
         {/* Logo */}
         <div className="flex items-center space-x-2 md:space-x-4">
-          <Link to="/">
-            <Logo size="text-xl" />
-          </Link>
-        </div>
+  <Link to="/">
+    <img
+      src="/logo.png"
+      alt="Logo de Luis Daniel Fernández"
+      className="h-16 w-auto md:h-20"
+    />
+  </Link>
+</div>
+
 
         {/* Menú escritorio */}
         <div className="hidden md:flex items-center space-x-4 md:space-x-6 text-lg font-bold">

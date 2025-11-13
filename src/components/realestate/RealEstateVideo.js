@@ -1,32 +1,3 @@
-// import React from "react";
-
-// export default function RealEstateVideo() {
-//   return (
-//     <section className="relative w-full h-screen overflow-hidden">
-//       {/* Video como fondo */}
-//       <iframe
-//         className="absolute top-0 left-0 w-full h-full object-cover"
-//         src="https://www.youtube.com/embed/B62oS40o4cA?autoplay=1&mute=1&loop=1&playlist=B62oS40o4cA&controls=0&showinfo=0&modestbranding=1"
-//         title="Bienes Raices Video"
-//         frameBorder="0"
-//         allow="autoplay; fullscreen"
-//         allowFullScreen
-//       ></iframe>
-
-//       {/* Capa oscura */}
-//       <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-10" />
-
-//       {/* Texto centrado */}
-//       <div className="relative z-20 flex items-center justify-center h-full">
-//         <h1 className="text-white text-5xl md:text-7xl font-bold font-luxury tracking-wide text-center">
-//           Bienes Raíces
-//         </h1>
-//       </div>
-//     </section>
-//   );
-// }
-
-
 import React from "react";
 
 export default function RealEstateVideo() {
