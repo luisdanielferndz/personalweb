@@ -15,7 +15,7 @@ const AnimatedTitle = () => {
           <div className="absolute bottom-0 h-1/2 w-full overflow-hidden flex items-start">
             <div className="animate-apple-bottom text-[7vmin] absolute top-0 pl-[2vmin] leading-none">
               {/* the sky is the limt */}
-              work + dicipline + focus
+              trabajo + diciplina + enfoque
             </div>
           </div>
         </div>

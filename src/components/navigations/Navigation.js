@@ -7,11 +7,11 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const internalLinks = [
-    { name: 'About Daniel', href: '/about' },
-    { name: 'Real Estate', href: '/estate' },
-    { name: 'Developer', href: '/developer' },
-    { name: 'Book', href: '/bookhome' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'Sobre Daniel', href: '/about' },
+    { name: 'Bienes Raices', href: '/estate' },
+    { name: 'Software', href: '/developer' },
+    { name: 'Libros', href: '/bookhome' },
+    { name: 'Contacto', href: '/contact' },
   ];
 
   return (

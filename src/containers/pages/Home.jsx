@@ -14,9 +14,7 @@ function Home(){
         <Layout>
             <Header/>
             <SocialMarquee/>
-
             <HomeAbInformation/>
-            {/* <SocialMarquee/> */}
             <HomeRealEstate/>
             <HomeDeveloper/>
             <HomeSignatureAnimation/>

@@ -3,7 +3,7 @@ import BookSectionArte from "../../components/home/book/BookSectionArte"
 import Layout from "../../hocs/layouts/Layout"
 import BookSectionDiario from "../../components/home/book/BookSectionDiario"
 import BookSectionSendero from "../../components/home/book/BookSectionSendero"
-import Prueba from "../../components/home/book/Prueba"
+import BookAnuncio from "../../components/home/book/BookAnuncio"
 
 
 function BookHome (){
@@ -13,10 +13,8 @@ function BookHome (){
             <BookHomeInfo/>
             <BookSectionDiario/>
             <BookSectionArte/>
-            <Prueba/>
-            <BookSectionSendero/>
-\           
-
+            <BookAnuncio/>
+            <BookSectionSendero/>   
         </Layout>
     )
 
