@@ -2,7 +2,7 @@
 import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
 
-const WhatsAppButton = ({ href = "https://chat.whatsapp.com/LFUsMvFXvVv7B6RfSqVLN1?mode=wwc", text = "Únete a nuestro grupo especial" }) => {
+const WhatsAppButton = ({ href = "https://chat.whatsapp.com/EipWwbmZxmGIBi92BsX8qI", text = "Únete a nuestro grupo especial" }) => {
   return (
     <a
       href={href}

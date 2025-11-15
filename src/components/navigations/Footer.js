@@ -2,9 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Twitter } from 'lucide-react';
 import { FaYoutube, FaInstagram, FaFacebookF, FaTiktok } from 'react-icons/fa';
-import Logo from "../others/Logo";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Footer() {
+  const location = useLocation();
+
   const socialLinks = [
     { icon: Github, href: "https://github.com/luisdanielferndz", label: "GitHub" },
     { icon: Twitter, href: "https://x.com/luisdanielfendz", label: "Twitter" },
@@ -15,49 +17,55 @@ export default function Footer() {
   ];
 
   const navLinks = [
-    { id: "about", label: "About" },
-    { id: "developer", label: "Developer" },
-    { id: "contact", label: "Contact" },
+    { href: "/about", label: "Sobre Daniel" },
+    { href: "/estate", label: "Bienes Raíces" },
+    { href: "/developer", label: "Software" },
+    { href: "/bookhome", label: "Libros" },
+    { href: "/contact", label: "Contacto" },
   ];
 
-  const scrollToSection = (sectionId) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
   return (
-    <footer className="px-6 py-12 mt-16 bg-fondoDev text-colorTextoGray">
+    <footer className="px-6 py-12 bg-fondoDev text-colorTextoGray font-luxury">
       <div className="max-w-6xl mx-auto">
         <div className="w-full h-px mb-12 bg-white/10"></div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {/* Logo & Bio */}
           <div className="md:col-span-1">
-            <Logo size="text-2xl" />
+            <Link to="/">
+              <img
+                src="/logo.png"
+                alt="Logo de Luis Daniel Fernández"
+                className="h-16 w-auto md:h-20"
+              />
+            </Link>
             <p className="mt-4 text-sm max-w-xs text-gray-300">
-              Frontend developer passionate about building modern, fast, and beautiful web experiences.
+              Que sería de la vida si no pudiéramos provocar un cambio en ella.
             </p>
           </div>
 
-          {/* Links */}
+          {/* Enlaces */}
           <div className="md:col-span-1">
-            <h3 className="font-semibold mb-4 text-white">Quick Links</h3>
+            <h3 className="font-semibold mb-4 text-white">Enlaces rápidos</h3>
             <ul className="space-y-2">
-              {navLinks.map(link => (
-                <li key={link.id}>
-                  <button
-                    onClick={() => scrollToSection(link.id)}
-                    className="hover:text-blue-400 transition-colors"
+              {navLinks.map((link, idx) => (
+                <li key={idx}>
+                  <Link
+                    to={link.href}
+                    className={`hover:text-blue-400 transition-colors ${
+                      location.pathname === link.href ? "text-white" : "text-gray-300"
+                    }`}
                   >
                     {link.label}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Socials */}
+          {/* Redes sociales */}
           <div className="md:col-span-1">
-            <h3 className="font-semibold mb-4 text-white">Connect</h3>
+            <h3 className="font-semibold mb-4 text-white">Conéctate conmigo</h3>
             <div className="flex gap-4 flex-wrap">
               {socialLinks.map((social, index) => (
                 <motion.a
@@ -80,7 +88,7 @@ export default function Footer() {
 
         <div className="text-center text-sm text-gray-300">
           <p>&copy; {new Date().getFullYear()} Luis Daniel Fernández Hdz</p>
-          <p className="mt-1">Let's live a life with purpose</p>
+          <p className="mt-1">Vivamos una vida con propósito</p>
         </div>
       </div>
     </footer>

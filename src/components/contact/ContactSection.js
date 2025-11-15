@@ -15,7 +15,6 @@ import Button from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
 import { Textarea } from "../../components/ui/textarea";
 
-// Inicializa EmailJS con tu clave pública (una sola vez)
 emailjs.init(process.env.REACT_APP_EMAILJS_PUBLIC_KEY);
 
 export default function ContactSection() {
@@ -64,7 +63,7 @@ export default function ContactSection() {
   ];
 
   return (
-    <section id="contact" className="min-h-screen flex items-center px-6 py-20 bg-fondoDev font-luxury overflow-x-hidden box-border">
+    <section id="contact" className="min-h-screen flex items-center px-6 pt-20 pb-0 bg-fondoDev font-luxury overflow-x-hidden box-border">
       <div className="max-w-6xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -76,11 +75,11 @@ export default function ContactSection() {
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">
             Cuéntame,{" "}
             <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
-              que neceitas!
+              que necesitas!
             </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-          Un mensaje puede ser el inicio de algo grande.
+            Un mensaje puede ser el inicio de algo grande.
           </p>
         </motion.div>
 
@@ -96,8 +95,8 @@ export default function ContactSection() {
             <div className="space-y-6 mb-8 text-gray-300">
               {[
                 { icon: Mail, text: "ldanielferndz@gmail.com", href: "mailto:ldanielferndz@gmail.com" },
-                { icon: Phone, text: "+55 (95) 8425-9581", href: "tel:+559584259581" },
-                { icon: MapPin, text: "Brasil, Rio de Janeiro", href: "#" },
+                { icon: Phone, text: "+55 (21) 99599-2900", href: "tel:+5521995992900" },
+                { icon: MapPin, text: "Rio de Janeiro, Brasil", href: "#" },
               ].map((contact, index) => (
                 <div key={index} className="flex items-center gap-4">
                   <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl">
@@ -186,7 +185,7 @@ export default function ContactSection() {
 
               {success === true && (
                 <p className="text-green-400 text-center font-medium mt-4">
-                  ✅ El mensaje fue enviado con exito!
+                  ✅ El mensaje fue enviado con éxito!
                 </p>
               )}
               {success === false && (

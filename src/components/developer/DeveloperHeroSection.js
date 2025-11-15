@@ -1,117 +1,68 @@
-import React, { useState, useEffect, useMemo } from "react";
-import { motion } from "framer-motion";
-import { ChevronDown, Download, Mail } from "lucide-react";
-import Button from "../ui/button";
+import React from "react";
+import { Typewriter } from "react-simple-typewriter";
 
 export default function DeveloperHeroSection() {
-  const [displayText, setDisplayText] = useState("");
-  const roles = useMemo(() => [
-    "Modern Web Developer",
-    "Engineer Developer",
-    "Frontend Expert"
-  ], []);
-  const [currentRole, setCurrentRole] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  useEffect(() => {
-    const currentText = roles[currentRole];
-    const timeout = setTimeout(() => {
-      if (!isDeleting) {
-        if (displayText.length < currentText.length) {
-          setDisplayText(currentText.slice(0, displayText.length + 1));
-        } else {
-          setTimeout(() => setIsDeleting(true), 1500);
-        }
-      } else {
-        if (displayText.length > 0) {
-          setDisplayText(displayText.slice(0, -1));
-        } else {
-          setIsDeleting(false);
-          setCurrentRole((prev) => (prev + 1) % roles.length);
-        }
-      }
-    }, isDeleting ? 50 : 100);
-
-    return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, currentRole, roles]);
-
-  const scrollToAbout = () => {
-    const el = document.getElementById("about");
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
   return (
-    <section
-      id="hero"
-      className="min-h-screen flex items-center justify-center px-6 relative bg-fondoDev text-white font-luxury overflow-hidden"
-    >
-      <div className="max-w-6xl mx-auto text-center relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6">
-            Hi, I'm{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-blue-500 bg-clip-text text-transparent">
-              Daniel
-            </span>
-          </h1>
-        </motion.div>
+    <section className="w-full bg-fondoDev text-white font-luxury flex items-center justify-center min-h-screen px-6">
+      <div className="text-center max-w-4xl mx-auto space-y-8">
+        
+        {/* Título principal */}
+        <h1 className="text-4xl md:text-7xl font-bold">Este es mi espacio cibernético</h1>
+        
+        {/* Subtítulo animado */}
+        <h2 className="text-xl md:text-3xl font-semibold text-gray-300">
+          Soy{" "}
+          <span className="text-blue-400">
+            <Typewriter
+              words={[
+                "Ingeniero de Software",
+                "Desarrollador Web",
+                "Emprendedor Digital",
+              ]}
+              loop={true}
+              cursor
+              cursorStyle="|"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={2000}
+            />
+          </span>
+        </h2>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mb-8"
-        >
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-light mb-4 text-gray-200">
-            I'm a{" "}
-            <span className="font-medium text-blue-400 inline-block text-left">
-              {displayText}
-              <span className="animate-pulse">|</span>
-            </span>
-          </h2>
-          <p className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed text-gray-300">
-            I build websites that look modern, work fast, and deliver exceptional user experiences.
+        {/* Texto jerárquico */}
+        <div className="space-y-4">
+          <h3 className="text-2xl md:text-3xl font-bold">
+            Desarrollo de Software con Propósito
+          </h3>
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
+            Creo soluciones digitales que conectan ideas con resultados. 
+            Mi enfoque combina estrategia, diseño y tecnología para entregar 
+            proyectos funcionales, escalables y de impacto real.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
-        >
-          <Button
-            size="lg"
-            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-2xl transition-all hover:scale-105"
+        {/* Botones */}
+        <div className="flex justify-center gap-6 mt-8">
+          <button
             onClick={() =>
-              document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
+              document.getElementById("projects")?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              })
             }
+            className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl font-semibold hover:scale-105 transition-transform"
           >
-            <Mail className="w-5 h-5 mr-2" />
-            View My Work
-          </Button>
+            Ver mi trabajo
+          </button>
 
-          <Button
-            variant="outline"
-            size="lg"
-            className="px-8 py-3 rounded-2xl border-white/20 text-white hover:bg-white/10 transition-all hover:scale-105"
+          <a
+            href="/assets/CV_Daniel.pdf"
+            download
+            className="px-6 py-3 bg-gradient-to-r from-gray-700 to-gray-900 rounded-xl font-semibold hover:scale-105 transition-transform"
           >
-            <Download className="w-5 h-5 mr-2" />
-            Download Resume
-          </Button>
-        </motion.div>
-
-        <motion.button
-          onClick={scrollToAbout}
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 p-2 rounded-full text-white/70 hover:text-white"
-        >
-          <ChevronDown className="w-6 h-6" />
-        </motion.button>
+            Descargar CV
+          </a>
+        </div>
       </div>
     </section>
   );

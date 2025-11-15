@@ -4,13 +4,13 @@ import { Code, Server, GitMerge } from "lucide-react";
 export default function DeveloperSkillSection() {
   const categories = [
     {
-      title: "Frontend Development",
+      title: "Desarrollo Frontend",
       icon: Code,
       skills: [
         { name: "HTML5", level: 98 },
         { name: "CSS3 & Tailwind", level: 95 },
         { name: "JavaScript", level: 95 },
-        { name: "Responsive Design", level: 100 },
+        { name: "Diseño Responsivo", level: 100 },
       ],
     },
     {
@@ -23,29 +23,33 @@ export default function DeveloperSkillSection() {
       ],
     },
     {
-      title: "Technologies",
+      title: "Tecnologías",
       icon: GitMerge,
       skills: [
         { name: "React", level: 95 },
         { name: "Next.js", level: 92 },
         { name: "Django", level: 88 },
         { name: "Git & GitHub", level: 75 },
-        { name: "AI Tools", level: 90 },
+        { name: "Herramientas de IA", level: 90 },
       ],
     },
   ];
 
   return (
-    <section id="skills" className="min-h-screen flex items-center px-6 py-20 bg-[#0A0E1F] text-white font-luxury">
+    <section
+      id="skills"
+      className="min-h-screen flex items-center px-6 py-20 bg-fondoDev text-white font-luxury"
+    >
       <div className="max-w-6xl mx-auto text-center fade-in-section">
         <h2 className="text-4xl md:text-6xl font-bold mb-6">
-          My{" "}
+          Conocimientos{" "}
           <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
-            Skills
+            al respecto
           </span>
         </h2>
         <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
-          A comprehensive toolkit for building modern, scalable web applications.
+          Un conjunto sólido de competencias técnicas para diseñar, construir y
+          mantener aplicaciones web modernas, escalables y seguras.
         </p>
 
         <div className="grid lg:grid-cols-3 gap-8">

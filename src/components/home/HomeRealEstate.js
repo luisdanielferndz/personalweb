@@ -57,7 +57,7 @@ const HomeRealEstate = React.memo(() => {
               Ver Propiedades
             </a>
             <a
-              href="#contacto"
+              href="#contact"
               className="inline-block px-6 py-3 border border-gray-300 text-gray-100 rounded-lg bg-white/10 hover:bg-white/20 transition font-medium"
             >
               Contáctame

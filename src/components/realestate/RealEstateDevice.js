@@ -9,9 +9,8 @@ export default function RealEstateDevice() {
           Experiencia Inmobiliaria Moderna
         </h2>
         <p className="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed">
-          Combino tecnología, visión estratégica y experiencia humana para ofrecer un servicio 
-          inmobiliario integral. Cada propiedad es más que un espacio: es una oportunidad para 
-          construir futuro.
+          Trabajo con precisión y enfoque. Cada propiedad se gestiona con estrategia, 
+          tecnología y atención personalizada, garantizando operaciones seguras y resultados concretos.
         </p>
       </div>
 
@@ -20,20 +19,20 @@ export default function RealEstateDevice() {
         {/* Texto */}
         <div className="space-y-5">
           <h3 className="text-2xl md:text-3xl font-bold text-white">
-            Enfoque Estratégico y Personalizado
+            Estrategia Definida y Personalizada
           </h3>
           <p className="text-gray-300 leading-relaxed text-lg">
-            Cada cliente es único. Analizo su contexto, objetivos y posibilidades para ofrecer 
-            estrategias inmobiliarias a medida, basadas en datos y experiencia práctica. 
-            Desde la búsqueda hasta el cierre, cada paso está diseñado para maximizar resultados 
-            y minimizar riesgos.
+            Cada cliente tiene objetivos claros. Analizo su situación y diseño un plan 
+            inmobiliario específico, basado en datos de mercado y experiencia comprobada. 
+            Desde la búsqueda hasta el cierre, cada paso está orientado a maximizar valor 
+            y reducir riesgos.
           </p>
         </div>
 
         {/* Imagen */}
         <div className="flex justify-center">
           <img
-            src="/assets/casa.jpg"
+            src="https://images.unsplash.com/photo-1723470918060-5f7c382757cc?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Estrategia inmobiliaria"
             className="rounded-2xl shadow-xl max-w-full h-auto object-cover transition-transform duration-500 hover:scale-105"
           />
@@ -45,7 +44,7 @@ export default function RealEstateDevice() {
         {/* Imagen */}
         <div className="flex justify-center order-1 md:order-2">
           <img
-            src="/assets/casa2.jpg"
+            src="https://images.unsplash.com/photo-1757439402214-2311405d70bd?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Gestión profesional"
             className="rounded-2xl shadow-xl max-w-full h-auto object-cover transition-transform duration-500 hover:scale-105"
           />
@@ -54,13 +53,12 @@ export default function RealEstateDevice() {
         {/* Texto */}
         <div className="space-y-5 order-2 md:order-1">
           <h3 className="text-2xl md:text-3xl font-bold text-white">
-            Tecnología y Confianza al Servicio del Cliente
+            Tecnología y Transparencia
           </h3>
           <p className="text-gray-300 leading-relaxed text-lg">
-            La innovación tecnológica no reemplaza la confianza, la potencia. 
-            Implemento herramientas digitales para seguimiento de propiedades, gestión de 
-            clientes y análisis de mercado, asegurando transparencia y eficiencia en cada 
-            operación.
+            Utilizo herramientas digitales para seguimiento de propiedades, gestión de clientes 
+            y análisis de mercado. La innovación respalda la confianza: cada operación se 
+            ejecuta con transparencia, eficiencia y control absoluto.
           </p>
         </div>
       </div>

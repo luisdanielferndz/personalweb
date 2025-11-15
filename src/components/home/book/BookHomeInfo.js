@@ -1,28 +1,62 @@
 import React, { useState } from 'react';
+import emailjs from "@emailjs/browser";
+
+emailjs.init(process.env.REACT_APP_EMAILJS_PUBLIC_KEY);
 
 export default function BookHomeInfo() {
   const [contactType, setContactType] = useState('email');
   const [value, setValue] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [success, setSuccess] = useState(null);
+
+  const handleSubscribe = async () => {
+    if (!value) {
+      alert("Por favor ingresa tu correo o número de teléfono");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSuccess(null);
+
+    try {
+      await emailjs.send(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_SUBSCRIPTION_TEMPLATE_ID,
+        {
+          contact_type: contactType,
+          contact_value: value,
+        }
+      );
+
+      setSuccess(true);
+      setValue("");
+    } catch (error) {
+      console.error("❌ Error al enviar:", error.text || error);
+      setSuccess(false);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <header className="w-full bg-gradient-to-r from-[#FFF8ED] via-[#FFFDF9] to-white font-luxury">
       <div className="max-w-7xl mx-auto px-8 py-20 md:py-28 flex flex-col lg:flex-row items-start gap-10">
-        {/* Left: gran numeral y acento dorado */}
+        {/* Left: numeral y acento dorado */}
         <div className="flex-shrink-0 flex items-start gap-6">
           <div className="text-[180px] md:text-[220px] leading-none font-extrabold text-[#0b132430] select-none pointer-events-none">01</div>
           <div className="h-44 w-1.5 rounded-xl bg-gradient-to-b from-[#F6C85F] to-[#D69E02] shadow-md" />
         </div>
 
-        {/* Centro: título amplio y subtítulo */}
+        {/* Centro: título y subtítulo */}
         <div className="flex-1">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-[#13172A] leading-tight">
-            Biblioteca de autores
+            Sección de libros
           </h1>
           <p className="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl">
-            Una sala dedicada a lecturas que transforman hábitos, pensamiento y resultados. Explora títulos seleccionados para avanzar desde la intención hasta el logro.
+            Una sección dedicada a las lecturas que transforman hábitos, pensamientos y resultados. Explora títulos seleccionados para avanzar desde la intención hasta el logro.
           </p>
 
-          {/* Detalle representativo: sello dorado y línea decorativa */}
+          {/* Detalle decorativo */}
           <div className="mt-8 flex items-center gap-6">
             <div className="flex items-center gap-3 bg-gradient-to-br from-white/80 to-white/40 rounded-full px-4 py-2 shadow-sm">
               <svg className="w-8 h-8 text-yellow-500" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -41,11 +75,11 @@ export default function BookHomeInfo() {
           </div>
         </div>
 
-        {/* Right: suscripción compacto y prominente (form select + input) */}
+        {/* Right: suscripción */}
         <div className="w-full lg:w-96 bg-white rounded-3xl shadow-2xl p-6 md:p-8 flex flex-col gap-4">
           <div className="text-sm text-gray-500 uppercase tracking-wide">Suscríbete a novedades</div>
 
-          {/* Selector atractivo desplegable "Elija" */}
+          {/* Selector */}
           <div className="relative">
             <label className="block text-xs text-gray-400 mb-2">Elija</label>
             <div className="flex items-center gap-2 bg-gray-50 rounded-lg p-1 border border-gray-200">
@@ -53,7 +87,6 @@ export default function BookHomeInfo() {
                 type="button"
                 onClick={() => setContactType('email')}
                 className={`flex-1 text-sm py-2 rounded-lg transition ${contactType === 'email' ? 'bg-white shadow-sm font-semibold' : 'text-gray-600'}`}
-                aria-pressed={contactType === 'email'}
               >
                 Correo electrónico
               </button>
@@ -61,7 +94,6 @@ export default function BookHomeInfo() {
                 type="button"
                 onClick={() => setContactType('phone')}
                 className={`flex-1 text-sm py-2 rounded-lg transition ${contactType === 'phone' ? 'bg-white shadow-sm font-semibold' : 'text-gray-600'}`}
-                aria-pressed={contactType === 'phone'}
               >
                 Número de teléfono
               </button>
@@ -69,7 +101,7 @@ export default function BookHomeInfo() {
             </div>
           </div>
 
-          {/* Input principal */}
+          {/* Input */}
           <div>
             <label htmlFor="contact" className="sr-only">
               {contactType === 'email' ? 'Correo electrónico' : 'Número de teléfono'}
@@ -85,22 +117,34 @@ export default function BookHomeInfo() {
             />
           </div>
 
-          {/* CTA suscripción */}
+          {/* Botón */}
           <div className="pt-1">
             <button
               type="button"
+              onClick={handleSubscribe}
+              disabled={isSubmitting}
               className="w-full inline-flex items-center justify-center gap-3 px-5 py-3 bg-[#F6C85F] text-[#13172A] rounded-lg font-semibold shadow hover:brightness-95 transition"
-              onClick={() => { /* manejar envío */ }}
             >
-              Subscribirme
+              {isSubmitting ? "Enviando..." : "Subscribirme"}
             </button>
           </div>
+
+          {success === true && (
+            <p className="text-green-600 text-center font-medium mt-2">
+              ✅ Suscripción enviada con éxito!
+            </p>
+          )}
+          {success === false && (
+            <p className="text-red-600 text-center font-medium mt-2">
+              ❌ Ocurrió un error al enviar. Intenta de nuevo.
+            </p>
+          )}
 
           <div className="text-xs text-gray-400 mt-1">
             Recibirás novedades, lanzamientos y recursos exclusivos. Puedes dejar el campo vacío para explorar igualmente.
           </div>
 
-          {/* Pequeño detalle visual inferior */}
+          {/* Detalle visual inferior */}
           <div className="mt-4 flex items-center gap-3 text-xs text-gray-500">
             <svg className="w-4 h-4 text-yellow-500" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M12 2l2.9 6.2L21 9.3l-5 4.2L17 21l-5-3.1L7 21l1-7.5-5-4.2 6.1-.9L12 2z" />
@@ -110,7 +154,7 @@ export default function BookHomeInfo() {
         </div>
       </div>
 
-      {/* Gran divider decorativo en la parte inferior del header */}
+      {/* Divider inferior */}
       <div className="w-full">
         <div className="max-w-7xl mx-auto px-8">
           <div className="h-2 rounded-full bg-gradient-to-r from-transparent via-[#F6C85F] to-transparent" />

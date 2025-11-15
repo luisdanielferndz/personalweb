@@ -8,8 +8,8 @@ export default function Header() {
 
         {/* Columna izquierda */}
         <div className="flex flex-col md:items-start md:justify-center items-center">
-          <div className="block md:hidden w-full flex justify-center relative overflow-visible -mt-4 mb-2">
-            <div className="relative w-[95vw] h-[390px] mt-4">
+          <div className="block md:hidden w-full flex justify-center relative overflow-visible mt-8 mb-2">
+            <div className="relative w-full max-w-[95vw] h-[440px]">
               <img
                 src="/assets/photoHome.png"
                 alt="Foto de presentación"

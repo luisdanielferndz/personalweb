@@ -17,17 +17,16 @@ export default function Navbar() {
     <nav className="fixed top-0 w-full bg-fondoGrayClaro backdrop-blur-md font-luxury text-[#584738] z-50">
 
       <div className="max-w-full mx-auto px-4 md:px-20 flex items-center justify-between h-20">
-        {/* Logo */}
+        {/* Logo siempre visible en móvil y escritorio */}
         <div className="flex items-center space-x-2 md:space-x-4">
-  <Link to="/">
-    <img
-      src="/logo.png"
-      alt="Logo de Luis Daniel Fernández"
-      className="h-16 w-auto md:h-20"
-    />
-  </Link>
-</div>
-
+          <Link to="/">
+            <img
+              src="/logo.png"
+              alt="Logo de Luis Daniel Fernández"
+              className="h-14 w-auto md:h-20 object-contain"
+            />
+          </Link>
+        </div>
 
         {/* Menú escritorio */}
         <div className="hidden md:flex items-center space-x-4 md:space-x-6 text-lg font-bold">
