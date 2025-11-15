@@ -1,6 +1,3 @@
-// BookArteContent.jsx
-import React from "react";
-
 export const bookArtePages = [
   `Introducción
 
