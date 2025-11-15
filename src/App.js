@@ -1,80 +1,51 @@
-// // import './App.css';
-// import {BrowserRouter as Router, Route, Routes, useLocation} from 'react-router-dom'
-// import { Helmet, HelmetProvider } from 'react-helmet-async';
-// import { Provider } from 'react-redux';
-// import store from './store';
-// import AnimatedRoutes from './hocs/routes/Routes';
-
-// function App() {
-//   return (
-//     <HelmetProvider>
-//       <Helmet>
-        
-//         <title>Portafolio Personal</title> 
-//         {/* Esto es lo que sale en el buscador de google */}
-//         <meta name="description" content="Agencia de software y marketing digital. Servicios de creacion de pagina web y desarrollo de aplicaciones." />
-//         <meta name="keywords" content='agencia de software, agencia de marketing, creacion de pagina web' />
-//         <meta name="robots" content='all' />
-//         <link rel="canonical" href="https://www.InmueblesImperio.com/" />
-//         <meta name="author" content='Murkiva' />
-//         <meta name="publisher" content='Murkiva' />
-
-//         {/* Social Media Tags */}
-//         <meta property="og:title" content='Murkiva | Software Agency' />
-//         <meta property="og:description" content='Agencia de software y marketing digital. Servicios de creacion de pagina web y desarrollo de aplicaciones.' />
-//         <meta property="og:url" content="https://www.murkiva.com/" />
-//         <meta property="og:image" content='https://bafybeicwrhxloesdlojn3bxyjqnxgsagtd4sl53a7t4cn4vfe2abmybzua.ipfs.w3s.link/lightbnuilbg.jpg' />
-
-//         <meta name="twitter:title" content='Murkiva | Software Agency' />
-//         <meta
-//             name="twitter:description"
-//             content='Agencia de software y marketing digital. Servicios de creacion de pagina web y desarrollo de aplicaciones.'
-//         />
-//         <meta name="twitter:image" content='https://bafybeicwrhxloesdlojn3bxyjqnxgsagtd4sl53a7t4cn4vfe2abmybzua.ipfs.w3s.link/lightbnuilbg.jpg' />
-//         <meta name="twitter:card" content="summary_large_image" />
-//       </Helmet>
-//       <Provider store={store}>
-
-//         <Router>
-//           <AnimatedRoutes/>
-//         </Router>
-//       </Provider>
-      
-//     </HelmetProvider>
-    
-//   );
-// } 
-
-// export default App;
-
-
-
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { Provider } from 'react-redux';
-import store from './store';
-import AnimatedRoutes from './hocs/routes/Routes';
+import { BrowserRouter as Router } from "react-router-dom";
+import { Helmet, HelmetProvider } from "react-helmet-async";
+import { Provider } from "react-redux";
+import store from "./store";
+import AnimatedRoutes from "./hocs/routes/Routes";
 
 function App() {
   return (
     <HelmetProvider>
       <Helmet>
+        {/* SEO básico */}
         <title>Portafolio Personal</title>
-        <meta name="description" content="Agencia de software y marketing digital. Servicios de creacion de pagina web y desarrollo de aplicaciones." />
-        <meta name="keywords" content="agencia de software, agencia de marketing, creacion de pagina web" />
+        <meta
+          name="description"
+          content="Portafolio personal de Daniel Fernández. Desarrollo web, aplicaciones y marketing digital."
+        />
+        <meta
+          name="keywords"
+          content="portafolio, desarrollo web, aplicaciones, marketing digital"
+        />
         <meta name="robots" content="all" />
-        <link rel="canonical" href="https://www.InmueblesImperio.com/" />
-        <meta name="author" content="Murkiva" />
-        <meta name="publisher" content="Murkiva" />
-        <meta property="og:title" content="Murkiva | Software Agency" />
-        <meta property="og:description" content="Agencia de software y marketing digital. Servicios de creacion de pagina web y desarrollo de aplicaciones." />
-        <meta property="og:url" content="https://www.murkiva.com/" />
-        <meta property="og:image" content="https://bafybeicwrhxloesdlojn3bxyjqnxgsagtd4sl53a7t4cn4vfe2abmybzua.ipfs.w3s.link/lightbnuilbg.jpg" />
-        <meta name="twitter:title" content="Murkiva | Software Agency" />
-        <meta name="twitter:description" content="Agencia de software y marketing digital. Servicios de creacion de pagina web y desarrollo de aplicaciones." />
-        <meta name="twitter:image" content="https://bafybeicwrhxloesdlojn3bxyjqnxgsagtd4sl53a7t4cn4vfe2abmybzua.ipfs.w3s.link/lightbnuilbg.jpg" />
+        <link rel="canonical" href="https://www.tudominio.com/" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Portafolio Personal | Daniel Fernández" />
+        <meta
+          property="og:description"
+          content="Desarrollador web y de aplicaciones. Servicios de software y marketing digital."
+        />
+        <meta property="og:url" content="https://www.tudominio.com/" />
+        <meta
+          property="og:image"
+          content="https://www.tudominio.com/preview.jpg"
+        />
+
+        {/* Twitter */}
+        <meta name="twitter:title" content="Portafolio Personal | Daniel Fernández" />
+        <meta
+          name="twitter:description"
+          content="Desarrollador web y de aplicaciones. Servicios de software y marketing digital."
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.tudominio.com/preview.jpg"
+        />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
+
       <Provider store={store}>
         <Router>
           <AnimatedRoutes />
